@@ -10,6 +10,12 @@ import {
   GridColumn
 } from './components/Grid';
 import Workspace from './components/Workspace';
+import {
+  DocumentViewer,
+  DocumentViewerList,
+  DocumentViewerListItem,
+  DocumentViewerControls
+} from './components/DocumentViewer';
 import './App.css';
 
 const App = () => (
@@ -20,7 +26,19 @@ const App = () => (
       <Grid>
         <GridColumn columns={6}>
           <Workspace style={{ height: '600px' }}>
-            Workspace content
+            <DocumentViewer>
+              <DocumentViewerControls />
+              <DocumentViewerList>
+                <DocumentViewerListItem />
+                <DocumentViewerListItem />
+                <DocumentViewerListItem />
+                <DocumentViewerListItem />
+                <DocumentViewerListItem />
+                <DocumentViewerListItem />
+                <DocumentViewerListItem />
+                <DocumentViewerListItem />
+              </DocumentViewerList>
+            </DocumentViewer>
           </Workspace>
         </GridColumn>
         <GridColumn columns={3}>

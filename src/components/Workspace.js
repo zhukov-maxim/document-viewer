@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const Workspace = styled.div`
+  position: relative;
   border: 1px solid #aaa;
   border-radius: 4px;
   background-color: #fff;
