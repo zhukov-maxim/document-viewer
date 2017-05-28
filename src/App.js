@@ -9,14 +9,20 @@ import {
   Grid,
   GridColumn
 } from './components/Grid';
+import StatefulDocumentViewer from './containers/StatefulDocumentViewer';
 import Workspace from './components/Workspace';
-import {
-  DocumentViewer,
-  DocumentViewerList,
-  DocumentViewerListItem,
-  DocumentViewerControls
-} from './components/DocumentViewer';
 import './App.css';
+
+const documents = [
+  1342362363,
+  2253262364,
+  3309854302,
+  4090354645,
+  5214156457,
+  6728284848,
+  7353542525,
+  8346272828
+];
 
 const App = () => (
   <Layout>
@@ -26,34 +32,7 @@ const App = () => (
       <Grid>
         <GridColumn columns={6}>
           <Workspace style={{ height: '600px' }}>
-            <DocumentViewer>
-              <DocumentViewerControls />
-              <DocumentViewerList>
-                <DocumentViewerListItem />
-                <DocumentViewerListItem />
-                <DocumentViewerListItem />
-                <DocumentViewerListItem />
-                <DocumentViewerListItem />
-                <DocumentViewerListItem />
-                <DocumentViewerListItem />
-                <DocumentViewerListItem />
-              </DocumentViewerList>
-            </DocumentViewer>
-          </Workspace>
-        </GridColumn>
-        <GridColumn columns={3}>
-          <Workspace>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem sapiente eligendi nemo expedita fugiat deserunt voluptates atque ducimus, impedit, earum ab corporis qui numquam quasi voluptatibus ratione dolorum laudantium.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem sapiente eligendi nemo expedita fugiat deserunt voluptates atque ducimus, impedit, earum ab corporis qui numquam quasi voluptatibus ratione dolorum laudantium.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem sapiente eligendi nemo expedita fugiat deserunt voluptates atque ducimus, impedit, earum ab corporis qui numquam quasi voluptatibus ratione dolorum laudantium.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem sapiente eligendi nemo expedita fugiat deserunt voluptates atque ducimus, impedit, earum ab corporis qui numquam quasi voluptatibus ratione dolorum laudantium.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem sapiente eligendi nemo expedita fugiat deserunt voluptates atque ducimus, impedit, earum ab corporis qui numquam quasi voluptatibus ratione dolorum laudantium.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem sapiente eligendi nemo expedita fugiat deserunt voluptates atque ducimus, impedit, earum ab corporis qui numquam quasi voluptatibus ratione dolorum laudantium.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem sapiente eligendi nemo expedita fugiat deserunt voluptates atque ducimus, impedit, earum ab corporis qui numquam quasi voluptatibus ratione dolorum laudantium.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem sapiente eligendi nemo expedita fugiat deserunt voluptates atque ducimus, impedit, earum ab corporis qui numquam quasi voluptatibus ratione dolorum laudantium.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem sapiente eligendi nemo expedita fugiat deserunt voluptates atque ducimus, impedit, earum ab corporis qui numquam quasi voluptatibus ratione dolorum laudantium.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem sapiente eligendi nemo expedita fugiat deserunt voluptates atque ducimus, impedit, earum ab corporis qui numquam quasi voluptatibus ratione dolorum laudantium.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem sapiente eligendi nemo expedita fugiat deserunt voluptates atque ducimus, impedit, earum ab corporis qui numquam quasi voluptatibus ratione dolorum laudantium.
+            <StatefulDocumentViewer documents={documents} />
           </Workspace>
         </GridColumn>
       </Grid>
