@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import {
   DocumentViewer,
@@ -24,14 +25,28 @@ class StatefulDocumentViewer extends React.Component {
       controlsVisible: false
     };
 
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
-  handleMouseEnter() {
-    this.setState({
-      controlsVisible: true
-    });
+  handleMouseMove(e) {
+    const THRESHOLD = 120;
+
+    const documentViewerDOMNode = ReactDOM.findDOMNode(this);
+
+    const mouseY = e.pageY;
+    const documentViewerY = documentViewerDOMNode.getBoundingClientRect().top;
+    const delta = mouseY - documentViewerY;
+
+    if (delta < THRESHOLD) {
+      this.setState({
+        controlsVisible: true
+      });
+    } else {
+      this.setState({
+        controlsVisible: false
+      });
+    }
   }
 
   handleMouseLeave() {
@@ -43,7 +58,7 @@ class StatefulDocumentViewer extends React.Component {
   render() {
     return (
       <DocumentViewer
-        onMouseEnter={this.handleMouseEnter}
+        onMouseMove={this.handleMouseMove}
         onMouseLeave={this.handleMouseLeave}
       >
         <DocumentViewerControls visible={this.state.controlsVisible} />

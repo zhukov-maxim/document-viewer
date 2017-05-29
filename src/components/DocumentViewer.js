@@ -18,7 +18,7 @@ export const DocumentViewerControls = styled.div`
   height: 44px;
   background-color: rgba(0,0,0,0.5);
   opacity: ${props => props.visible ? 1 : 0};
-  transition: opacity 400ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 `;
 
 export const DocumentViewerContent = styled.div`
