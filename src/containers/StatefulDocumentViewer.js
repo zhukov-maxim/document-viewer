@@ -5,16 +5,20 @@ import {
   DocumentViewer,
   DocumentViewerControls,
   DocumentViewerContent,
-  DocumentViewerList,
-  DocumentViewerListItem
+  DocumentViewerList
 } from '../components/DocumentViewer';
+
+import StatefulDocumentViewerListItem from './StatefulDocumentViewerListItem';
 
 class StatefulDocumentViewer extends React.Component {
   static renderDocument(data) {
     return (
-      <DocumentViewerListItem key={data}>
-        {data}
-      </DocumentViewerListItem>
+      <StatefulDocumentViewerListItem
+        id={data.id}
+        key={data.id}
+        width={data.width}
+        height={data.height}
+      />
     );
   }
 
@@ -64,7 +68,7 @@ class StatefulDocumentViewer extends React.Component {
         <DocumentViewerControls visible={this.state.controlsVisible} />
         <DocumentViewerContent>
           <DocumentViewerList>
-            {this.props.documents.map(StatefulDocumentViewer.renderDocument)}
+            {this.props.documents.map(StatefulDocumentViewer.renderDocument, this)}
           </DocumentViewerList>
         </DocumentViewerContent>
       </DocumentViewer>
@@ -73,7 +77,7 @@ class StatefulDocumentViewer extends React.Component {
 }
 
 StatefulDocumentViewer.propTypes = {
-  documents: PropTypes.arrayOf(PropTypes.number).isRequired
+  documents: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default StatefulDocumentViewer;

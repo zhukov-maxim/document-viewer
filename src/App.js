@@ -11,18 +11,8 @@ import {
 } from './components/Grid';
 import StatefulDocumentViewer from './containers/StatefulDocumentViewer';
 import Workspace from './components/Workspace';
+import documents from './documents';
 import './App.css';
-
-const documents = [
-  1342362363,
-  2253262364,
-  3309854302,
-  4090354645,
-  5214156457,
-  6728284848,
-  7353542525,
-  8346272828
-];
 
 const App = () => (
   <Layout>

@@ -16,6 +16,7 @@ module.exports = {
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "react/no-find-dom-node": "off",
     "no-confusing-arrow": "off",
+    "no-return-assign": "off",
     "jest/no-disabled-tests": "warn",
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",

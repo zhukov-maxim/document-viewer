@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 export const DocumentViewer = styled.div`
   position: relative;
@@ -37,24 +38,52 @@ export const DocumentViewerList = styled.div`
 `;
 
 export const DocumentViewerListItem = styled.div`
+  position: relative;
   box-sizing: border-box;
-  width: 100%;
-  height: 300px;
   border: 4px solid #fff;
   border-radius: 2px;
   padding: 12px;
   background-color: #ccc;
   cursor: pointer;
+  transform: rotateZ(${props => props.rotationDegree ? props.rotationDegree : 0}deg);
+  width: ${props => props.currentWidth ? props.currentWidth : 'auto'};
+  height: ${props => props.currentHeight ? props.currentHeight : 'auto'};
+`;
 
-  & + & {
-    margin-top: 12px;
+DocumentViewerListItem.propTypes = {
+  rotationDegree: PropTypes.number,
+  currentWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  currentHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+};
+
+export const DocumentViewerRotationButton = styled.div`
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.2);
+  /* opacity: ${props => props.visible ? 1 : 0}; // TODO: Implement. */
+  transition: opacity 200ms ease-in-out;
+
+  &:hover {
+    background-color: rgba(255,255,255,0.5);
   }
 
-  &:nth-child(odd) {
-    width: 50%;
+  &:active {
+    background-color: rgba(230,230,230,0.5);
   }
 
-  &:nth-child(n+3) {
-    height: 150px;
+  &::after {
+    content: '⟲';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.3em;
+    font-weight: bold;
+    color: #666;
   }
 `;
